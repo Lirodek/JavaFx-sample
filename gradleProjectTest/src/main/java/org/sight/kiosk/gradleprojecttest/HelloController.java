@@ -1,14 +1,25 @@
 package org.sight.kiosk.gradleprojecttest;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HelloController {
     @FXML
     private Label welcomeText;
+    private Scene scene;
     int 증명서_발급_횟수 = 0;
+
 
     @FXML
     protected void onHelloButtonClick() {
@@ -34,6 +45,17 @@ public class HelloController {
     public void closeSystem(){
         Platform.exit();
         System.exit(0);
+    }
+
+    /* change Application */
+    @FXML
+    public void statButton(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/views/hello-view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 //    public void minimizeWindow(){

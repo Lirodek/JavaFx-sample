@@ -17,7 +17,6 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-
         primaryStageObj = primaryStage;
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/main-view.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
