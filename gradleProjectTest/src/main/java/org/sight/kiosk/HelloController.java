@@ -1,4 +1,4 @@
-package org.sight.kiosk.gradleprojecttest;
+package org.sight.kiosk;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -54,7 +54,19 @@ public class HelloController {
         Parent root = FXMLLoader.load(getClass().getResource("/views/hello-view.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+
         stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void onEndService(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/main-view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+
         stage.show();
     }
 

@@ -5,7 +5,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.gradleprojecttest.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.HelloController">
    <right>
       <GridPane BorderPane.alignment="TOP_LEFT">
         <columnConstraints>
@@ -14,9 +14,9 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="267.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="150.0" minHeight="2.0" prefHeight="150.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
@@ -36,7 +36,7 @@
    <bottom>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="174.0" text="키오스크 시작하기" VBox.vgrow="SOMETIMES" onAction="#statButton"/>
+            <Button mnemonicParsing="false" onAction="#statButton" prefHeight="75.0" prefWidth="174.0" text="키오스크 시작하기" VBox.vgrow="SOMETIMES" />
          </children>
          <effect>
             <Blend />

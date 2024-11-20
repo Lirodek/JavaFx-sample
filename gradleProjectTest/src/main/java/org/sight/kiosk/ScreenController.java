@@ -1,4 +1,4 @@
-package org.sight.kiosk.gradleprojecttest;
+package org.sight.kiosk;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;

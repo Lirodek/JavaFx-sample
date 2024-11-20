@@ -1,4 +1,4 @@
-package org.sight.kiosk.gradleprojecttest;
+package org.sight.kiosk;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -25,6 +25,7 @@ public class HelloApplication extends Application {
 
         Scene scene = new Scene(root, 600, 400);
         scene.setRoot(root);
+        primaryStage.setFullScreen(true);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();

@@ -25,8 +25,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'org.sight.kiosk.gradleprojecttest'
-    mainClass = 'org.sight.kiosk.gradleprojecttest.HelloApplication'
+    mainModule = 'org.sight.kiosk'
+    mainClass = 'org.sight.kiosk.HelloApplication'
 }
 
 javafx {
