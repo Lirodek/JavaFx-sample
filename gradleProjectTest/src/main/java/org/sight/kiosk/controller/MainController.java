@@ -1,6 +1,5 @@
-package org.sight.kiosk;
+package org.sight.kiosk.controller;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,15 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
+public class MainController {
     @FXML
     private Label welcomeText;
-    private Scene scene;
     int 증명서_발급_횟수 = 0;
 
 
@@ -41,27 +38,20 @@ public class HelloController {
         }
     }
 
-    /* Terminates Application */
-    public void closeSystem(){
-        Platform.exit();
-        System.exit(0);
-    }
-
-    /* change Application */
     @FXML
-    public void statButton(ActionEvent event) throws IOException {
-
+    public void onEndService(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/hello-view.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
+
         stage.show();
     }
 
     @FXML
-    public void onEndService(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/views/main-view.fxml"));
+    protected void onGoingDetailView(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/views/new-view.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
 
@@ -69,11 +59,4 @@ public class HelloController {
 
         stage.show();
     }
-
-//    public void minimizeWindow(){
-//        MainLauncher.getPrimaryStage().setIconified(true);
-//    }
-
-    @FXML
-    protected void onHelloButtonClick2() {welcomeText.setText("안녕하세요 JavaFx에 오신것을 환영합니다.");}
 }

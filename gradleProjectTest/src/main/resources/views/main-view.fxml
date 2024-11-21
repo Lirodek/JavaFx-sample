@@ -1,46 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.HelloController">
-   <right>
-      <GridPane BorderPane.alignment="TOP_LEFT">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="150.0" minHeight="2.0" prefHeight="150.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+<SplitPane dividerPositions="0.30402010050251255" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.MainController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="64.0" prefWidth="598.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
-                <Button id="MinimizedBtn" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" maxHeight="24.0" maxWidth="68.0" minWidth="45.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="45.0" stylesheets="@../styles/Login.css">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-                <Button id="CloseBtn" fx:id="closeButton" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" maxHeight="24.0" maxWidth="68.0" minWidth="45.0" mnemonicParsing="false" onAction="#closeSystem" prefHeight="24.0" prefWidth="45.0" stylesheets="@../styles/Login.css">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor></Button>
-            </HBox>
-         </children>
-      </GridPane>
-   </right>
-   <bottom>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <Label fx:id="welcomeText" layoutX="266.0" layoutY="25.0" prefHeight="69.0" prefWidth="57.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="275.0">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></Label>
+            <Button layoutX="232.0" layoutY="20.0" mnemonicParsing="false" onAction="#onEndService" prefHeight="79.0" prefWidth="124.0" text="사용종료" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#statButton" prefHeight="75.0" prefWidth="174.0" text="키오스크 시작하기" VBox.vgrow="SOMETIMES" />
-         </children>
-         <effect>
-            <Blend />
-         </effect>
-      </VBox>
-   </bottom>
-</BorderPane>
+            <SplitPane dividerPositions="0.5024793388429752" layoutX="-5.0" prefHeight="274.0" prefWidth="607.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Button layoutX="125.0" layoutY="125.0" mnemonicParsing="false" onAction="#onGoingDetailView" text="update data" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Button layoutX="123.0" layoutY="125.0" mnemonicParsing="false" onAction="#onHelloButtonClick" text="증명서 발급" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+  </items>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</SplitPane>
