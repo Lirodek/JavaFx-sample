@@ -1,11 +1,15 @@
-package org.sight.kiosk.controller;
+package org.sight.kiosk.controller.function;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import org.sight.kiosk.util.SceneSwitcher;
+import org.sight.kiosk.util.View;
 
-public class DetailController {
+import java.io.IOException;
+
+public class RadioController {
 
     private ToggleGroup test = new ToggleGroup();
 
@@ -29,7 +33,12 @@ public class DetailController {
     }
 
     @FXML
-    protected void onTestButtonClicked(ActionEvent event) {
-        System.out.println("함수 실행");
+    protected void onTestButtonClicked(ActionEvent event) throws IOException {
+        SceneSwitcher.getInstance().switcher(event, View.MAIN_VIEW);
+    }
+
+    @FXML
+    protected void onNextButton(ActionEvent event) throws IOException {
+        SceneSwitcher.getInstance().switcher(event, View.TEXT_FIELD);
     }
 }

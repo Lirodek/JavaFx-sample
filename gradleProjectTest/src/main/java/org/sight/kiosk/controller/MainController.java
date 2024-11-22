@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.sight.kiosk.util.SceneSwitcher;
+import org.sight.kiosk.util.View;
 
 import java.io.IOException;
 
@@ -40,23 +42,11 @@ public class MainController {
 
     @FXML
     public void onEndService(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/views/hello-view.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-
-        stage.show();
+        SceneSwitcher.getInstance().switcher(event, View.HELLO_VIEW);
     }
 
     @FXML
     protected void onGoingDetailView(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/views/new-view.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-
-        stage.show();
+        SceneSwitcher.getInstance().switcher(event, View.NEW_VIEW);
     }
 }

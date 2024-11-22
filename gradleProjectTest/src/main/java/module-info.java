@@ -10,4 +10,6 @@ module org.sight.kiosk.gradleprojecttest {
     exports org.sight.kiosk;
     exports org.sight.kiosk.controller;
     opens org.sight.kiosk.controller to javafx.fxml;
+    exports org.sight.kiosk.controller.function;
+    opens org.sight.kiosk.controller.function to javafx.fxml;
 }

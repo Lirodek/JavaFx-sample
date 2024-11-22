@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.function.TextFieldController">
+   <children>
+      <Button layoutX="74.0" layoutY="308.0" mnemonicParsing="false" text="목록으로" onAction="#onGoingMenu"/>
+      <Button layoutX="487.0" layoutY="308.0" mnemonicParsing="false" text="다음으로" onAction="#onGoingNext"/>
+      <Label layoutX="74.0" layoutY="84.0" text="이름을 입력하세요." />
+      <TextField layoutX="199.0" layoutY="80.0" prefHeight="22.0" prefWidth="227.0" fx:id="textField"/>
+      <Button layoutX="467.0" layoutY="80.0" mnemonicParsing="false" text="입력완료" onAction="#onComplate"/>
+      <Label layoutX="286.0" layoutY="193.0" fx:id="perfectLabel"/>
+   </children>
+</AnchorPane>

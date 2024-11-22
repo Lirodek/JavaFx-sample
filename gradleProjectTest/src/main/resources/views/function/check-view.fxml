@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.function.CheckController">
+   <children>
+      <Button layoutX="81.0" layoutY="290.0" mnemonicParsing="false" onAction="#onGoingMenu" text="메뉴" />
+      <Button layoutX="489.0" layoutY="290.0" mnemonicParsing="false" onAction="#onGoingNext" text="다음" />
+
+      <Button layoutX="274.0" layoutY="227.0" mnemonicParsing="false" onAction="#onFunctionBtn" text="Button" />
+      <CheckBox layoutX="290.0" layoutY="87.0" mnemonicParsing="false" text="조성규" fx:id="check1"/>
+      <CheckBox layoutX="191.0" layoutY="87.0" mnemonicParsing="false" text="성규" fx:id="check2"/>
+      <CheckBox layoutX="373.0" layoutY="87.0" mnemonicParsing="false" text="규" fx:id="check3"/>
+      <CheckBox layoutX="65.0" layoutY="87.0" mnemonicParsing="false" text="All"  fx:id="allClick"/>
+   </children>
+</AnchorPane>

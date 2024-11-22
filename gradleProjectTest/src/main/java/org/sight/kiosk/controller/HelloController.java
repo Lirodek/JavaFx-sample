@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.sight.kiosk.util.SceneSwitcher;
+import org.sight.kiosk.util.View;
 
 import java.io.IOException;
 
@@ -49,13 +51,8 @@ public class HelloController {
     /* change Application */
     @FXML
     public void startButton(ActionEvent event) throws IOException {
+        SceneSwitcher.getInstance().switcher(event, View.MAIN_VIEW);
 
-        Parent root = FXMLLoader.load(getClass().getResource("/views/main-view.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
     }
 
 
