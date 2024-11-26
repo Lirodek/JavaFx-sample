@@ -22,7 +22,10 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <Button layoutX="125.0" layoutY="125.0" mnemonicParsing="false" onAction="#onGoingDetailView" text="update data" />
+                        <Button layoutX="194.0" layoutY="47.0" mnemonicParsing="false" onAction="#onGoingCombo" prefHeight="37.0" prefWidth="74.0" text="combo" />
+                        <Button layoutX="52.0" layoutY="47.0" mnemonicParsing="false" onAction="#onGoingCheck" prefHeight="37.0" prefWidth="74.0" text="check" />
+                        <Button layoutX="52.0" layoutY="181.0" mnemonicParsing="false" onAction="#onGoingRadio" prefHeight="37.0" prefWidth="74.0" text="radio" />
+                        <Button layoutX="194.0" layoutY="181.0" mnemonicParsing="false" onAction="#onGoingTextField" prefHeight="37.0" prefWidth="74.0" text="textField" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

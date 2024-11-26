@@ -11,12 +11,13 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
 
+public class HelloApplication extends Application {
     private static Stage primaryStageObj;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+
         primaryStageObj = primaryStage;
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/hello-view.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);

@@ -5,6 +5,9 @@ module org.sight.kiosk.gradleprojecttest {
     requires org.controlsfx.controls;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires org.apache.pdfbox;
+    requires java.desktop;
+
 
     opens org.sight.kiosk to javafx.fxml;
     exports org.sight.kiosk;
