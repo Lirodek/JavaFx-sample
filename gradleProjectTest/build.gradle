@@ -21,6 +21,10 @@ sourceSets {
     }
 }
 
+java {
+    modularity.inferModulePath = true
+}
+
 ext {
     junitVersion = '5.10.0'
 }
@@ -47,6 +51,7 @@ dependencies {
     implementation('org.kordamp.ikonli:ikonli-javafx:12.3.1')
     implementation('org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0')
     implementation('org.apache.pdfbox:pdfbox:2.0.29')
+    implementation("org.snmp4j:snmp4j:3.8.2")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")

@@ -1,19 +1,43 @@
 package org.sight.kiosk.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import org.sight.kiosk.util.PDFPrinter;
+import org.sight.kiosk.util.SNMPPrinterStatus;
 import org.sight.kiosk.util.SceneSwitcher;
 import org.sight.kiosk.util.View;
 
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class MainController {
     @FXML
     private Label welcomeText;
-    int 증명서_발급_횟수 = 0;
+    @FXML
+    private Label printStatus;
+
+    private ScheduledExecutorService executorService;
+
+    @FXML
+    protected void initialize() {
+        executorService = Executors.newSingleThreadScheduledExecutor();
+
+        // 10초마다 비동기로 작업 실행
+        executorService.scheduleAtFixedRate(() -> {
+            System.out.println("스케쥴러 동작중 . . .");
+            
+            // SNMPPrinterStatus.f() 호출 결과 가져오기
+            String status = SNMPPrinterStatus.f();
+        
+            // JavaFX UI 스레드에서 Label 업데이트
+            Platform.runLater(() -> printStatus.setText(status));
+        }, 0, 10, TimeUnit.SECONDS);
+    }
 
 
     @FXML
@@ -33,6 +57,8 @@ public class MainController {
             fail.setHeaderText("실패!");
             fail.setContentText(e.getMessage());
             fail.showAndWait();
+        } finally {
+            printStatus.setText(SNMPPrinterStatus.f());
         }
     }
 

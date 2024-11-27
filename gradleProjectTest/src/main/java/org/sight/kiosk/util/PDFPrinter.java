@@ -93,7 +93,7 @@ public class PDFPrinter {
             printerJob.setPageable(new PDFPageable(document));
 
             // 6. 인쇄 시작
-//            printerJob.print();
+            printerJob.print();
 
             // 7. 문서 닫기
             document.close();

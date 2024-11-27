@@ -7,6 +7,7 @@ module org.sight.kiosk.gradleprojecttest {
     requires org.kordamp.bootstrapfx.core;
     requires org.apache.pdfbox;
     requires java.desktop;
+    requires org.snmp4j;
 
 
     opens org.sight.kiosk to javafx.fxml;
