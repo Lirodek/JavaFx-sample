@@ -8,6 +8,7 @@ module org.sight.kiosk.gradleprojecttest {
     requires org.apache.pdfbox;
     requires java.desktop;
     requires org.snmp4j;
+    requires com.fasterxml.jackson.databind;
 
 
     opens org.sight.kiosk to javafx.fxml;
