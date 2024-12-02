@@ -2,11 +2,10 @@ package org.sight.kiosk.controller.function;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import org.sight.kiosk.enums.View;
 import org.sight.kiosk.util.CustomAlert;
 import org.sight.kiosk.util.SceneSwitcher;
-import org.sight.kiosk.util.View;
 
 import java.io.IOException;
 

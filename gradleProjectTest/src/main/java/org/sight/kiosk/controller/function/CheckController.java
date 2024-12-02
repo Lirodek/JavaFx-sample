@@ -4,12 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleGroup;
+import org.sight.kiosk.enums.View;
 import org.sight.kiosk.util.CustomAlert;
 import org.sight.kiosk.util.SceneSwitcher;
-import org.sight.kiosk.util.View;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -4,9 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.sight.kiosk.enums.View;
 import org.sight.kiosk.util.CustomAlert;
 import org.sight.kiosk.util.SceneSwitcher;
-import org.sight.kiosk.util.View;
 
 import java.io.IOException;
 import java.io.InputStream;

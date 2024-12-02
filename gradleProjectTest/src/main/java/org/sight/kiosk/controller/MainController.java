@@ -5,10 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import org.sight.kiosk.enums.View;
 import org.sight.kiosk.util.PDFPrinter;
 import org.sight.kiosk.util.SNMPPrinterStatus;
 import org.sight.kiosk.util.SceneSwitcher;
-import org.sight.kiosk.util.View;
 
 import java.io.IOException;
 import java.util.concurrent.Executors;

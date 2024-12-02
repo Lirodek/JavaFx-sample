@@ -3,15 +3,11 @@ package org.sight.kiosk.controller;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import org.sight.kiosk.enums.View;
 import org.sight.kiosk.util.SceneSwitcher;
-import org.sight.kiosk.util.View;
 
 import java.io.IOException;
 
@@ -51,7 +47,7 @@ public class HelloController {
     /* change Application */
     @FXML
     public void startButton(ActionEvent event) throws IOException {
-        SceneSwitcher.getInstance().switcher(event, View.MAIN_VIEW);
+        SceneSwitcher.getInstance().switcher(event, View.RFID_VIEW);
 
     }
 
