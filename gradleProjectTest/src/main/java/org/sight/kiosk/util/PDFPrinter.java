@@ -4,9 +4,13 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.printing.PDFPageable;
 import org.apache.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState;
+import org.apache.pdfbox.util.Matrix;
+
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 import javax.print.attribute.Attribute;
@@ -37,16 +41,8 @@ public class PDFPrinter {
 
 
 
-    // 워터마크 추가
-    private void addWatermark(PDDocument document, String imagePath) throws IOException, URISyntaxException {
-        // 이미지 로드
-        URL imageUrl = getClass().getClassLoader().getResource(imagePath);
-        if (imageUrl == null) {
-            throw new RuntimeException("이미지 파일을 찾을 수 없습니다: " + imagePath);
-        }
-
-        PDImageXObject watermarkImage = PDImageXObject.createFromFileByContent(new File(imageUrl.toURI()), document);
-
+    // 워터마크 추가(이미지, 텍스트 모두 가능)
+    private void addWatermark(PDDocument document, String watermark, boolean isImage) throws IOException, URISyntaxException {
         for (PDPage page : document.getPages()) {
             // 페이지 크기 가져오기
             PDRectangle pageSize = page.getMediaBox();
@@ -55,18 +51,53 @@ public class PDFPrinter {
 
             // ContentStream 열기
             try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true, true)) {
-                //contentStream.setOpacity(0.3f); // 워터마크 투명도 설정 (0.0f ~ 1.0f)
-
-                // 그래픽 상태 설정
+                // 그래픽 상태 설정 (투명도)
                 PDExtendedGraphicsState graphicsState = new PDExtendedGraphicsState();
-                graphicsState.setNonStrokingAlphaConstant(0.3f); // 비-스트로크 투명도 설정 (30%)
+                graphicsState.setNonStrokingAlphaConstant(0.8f); // 80% 투명도
                 contentStream.setGraphicsStateParameters(graphicsState);
 
-                // 이미지 크기와 위치 조정
-                float imageWidth = watermarkImage.getWidth();
-                float imageHeight = watermarkImage.getHeight();
-                float scale = 1.0f; // 이미지 크기 조정 비율
-                contentStream.drawImage(watermarkImage, (pageWidth - imageWidth * scale) / 2, (pageHeight - imageHeight * scale) / 2, imageWidth * scale, imageHeight * scale);
+                if (isImage) {
+                    // 이미지 워터마크 처리
+                    URL imageUrl = getClass().getClassLoader().getResource(watermark);
+                    if (imageUrl == null) {
+                        throw new RuntimeException("이미지 파일을 찾을 수 없습니다: " + watermark);
+                    }
+
+                    PDImageXObject watermarkImage = PDImageXObject.createFromFileByContent(new File(imageUrl.toURI()), document);
+
+                    // 이미지 크기와 위치 조정
+                    float imageWidth = watermarkImage.getWidth();
+                    float imageHeight = watermarkImage.getHeight();
+                    float scale = 1.0f; // 이미지 크기 조정 비율
+                    contentStream.drawImage(watermarkImage,
+                            (pageWidth - imageWidth * scale) / 2,
+                            (pageHeight - imageHeight * scale) / 2,
+                            imageWidth * scale,
+                            imageHeight * scale);
+
+                } else {
+                    // 텍스트 워터마크 처리
+                    contentStream.beginText(); // 텍스트 모드 시작
+
+                    // 폰트 및 크기 설정
+                    PDFont font = PDType1Font.HELVETICA_BOLD;
+                    int fontSize = 50;
+                    contentStream.setFont(font, fontSize);
+                    contentStream.setNonStrokingColor(200, 200, 200); // 텍스트 색상 (연한 회색)
+
+                    // 텍스트 폭 계산
+                    float textWidth = font.getStringWidth(watermark) / 1000 * fontSize;
+                    float textHeight = fontSize;
+
+                    // 중앙 위치 계산 (페이지 중심에서 텍스트 크기 보정)
+                    float x = (pageWidth - textWidth) / 2;
+                    float y = (pageHeight - textHeight) / 2;
+
+                    // 텍스트 위치 설정 및 출력
+                    contentStream.newLineAtOffset(x, y);
+                    contentStream.showText(watermark);
+                    contentStream.endText(); // 텍스트 모드 종료
+                }
             }
         }
     }
@@ -93,8 +124,8 @@ public class PDFPrinter {
             PDDocument document = PDDocument.load(pdfFile);
 
             // 워터마크 추가
-            addWatermark(document, "images/wipia.png");
-
+            //addWatermark(document, "images/wipia.png", true);
+            addWatermark(document, "123456789", false);
             // 3. 프린터 작업 생성
             PrinterJob printerJob = PrinterJob.getPrinterJob();
 
