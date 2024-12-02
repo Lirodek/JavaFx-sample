@@ -1,8 +1,12 @@
 package org.sight.kiosk.util;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.printing.PDFPageable;
-
+import org.apache.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 import javax.print.attribute.Attribute;
@@ -12,6 +16,8 @@ import javax.print.attribute.standard.PrinterState;
 import javax.print.attribute.standard.PrinterStateReason;
 import java.awt.print.PrinterJob;
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 public class PDFPrinter {
@@ -27,6 +33,42 @@ public class PDFPrinter {
             instance = new PDFPrinter();
         }
         return instance;
+    }
+
+
+
+    // 워터마크 추가
+    private void addWatermark(PDDocument document, String imagePath) throws IOException, URISyntaxException {
+        // 이미지 로드
+        URL imageUrl = getClass().getClassLoader().getResource(imagePath);
+        if (imageUrl == null) {
+            throw new RuntimeException("이미지 파일을 찾을 수 없습니다: " + imagePath);
+        }
+
+        PDImageXObject watermarkImage = PDImageXObject.createFromFileByContent(new File(imageUrl.toURI()), document);
+
+        for (PDPage page : document.getPages()) {
+            // 페이지 크기 가져오기
+            PDRectangle pageSize = page.getMediaBox();
+            float pageWidth = pageSize.getWidth();
+            float pageHeight = pageSize.getHeight();
+
+            // ContentStream 열기
+            try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true, true)) {
+                //contentStream.setOpacity(0.3f); // 워터마크 투명도 설정 (0.0f ~ 1.0f)
+
+                // 그래픽 상태 설정
+                PDExtendedGraphicsState graphicsState = new PDExtendedGraphicsState();
+                graphicsState.setNonStrokingAlphaConstant(0.3f); // 비-스트로크 투명도 설정 (30%)
+                contentStream.setGraphicsStateParameters(graphicsState);
+
+                // 이미지 크기와 위치 조정
+                float imageWidth = watermarkImage.getWidth();
+                float imageHeight = watermarkImage.getHeight();
+                float scale = 1.0f; // 이미지 크기 조정 비율
+                contentStream.drawImage(watermarkImage, (pageWidth - imageWidth * scale) / 2, (pageHeight - imageHeight * scale) / 2, imageWidth * scale, imageHeight * scale);
+            }
+        }
     }
 
     public String print(String pdfFileName) {
@@ -49,6 +91,9 @@ public class PDFPrinter {
 
             System.out.println(pdfFile);
             PDDocument document = PDDocument.load(pdfFile);
+
+            // 워터마크 추가
+            addWatermark(document, "images/wipia.png");
 
             // 3. 프린터 작업 생성
             PrinterJob printerJob = PrinterJob.getPrinterJob();
