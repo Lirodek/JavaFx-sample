@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 
 public class HelloApplication extends Application {
@@ -17,6 +19,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        propsTest();
 
         primaryStageObj = primaryStage;
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/hello-view.fxml"));
@@ -40,5 +43,26 @@ public class HelloApplication extends Application {
 
     public static Stage getPrimaryStage() {
         return primaryStageObj;
+    }
+
+    public void propsTest(){
+        // Properties 객체 생성
+        Properties prop = new Properties();
+        try (InputStream input = getClass().getResourceAsStream("/settings/application.properties")) {
+            if (input == null) {
+                System.out.println("Sorry, unable to find application.properties");
+                return;
+            }
+
+            // properties 파일 로드
+            prop.load(input);
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        // 속성 가져오기
+        String testName = prop.getProperty("test.name", "default");
+        System.out.println(testName);
     }
 }

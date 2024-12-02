@@ -45,6 +45,8 @@ public class MainController {
         try{
             String resultData = PDFPrinter.getInstance().print("test");
 
+
+
             Alert success = new Alert(Alert.AlertType.INFORMATION);
             success.setTitle("결과");
             success.setHeaderText("성공!");
