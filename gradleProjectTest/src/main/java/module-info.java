@@ -1,4 +1,4 @@
-module org.sight.kiosk {
+module org.sight.kiosk.gradleprojecttest {
     requires javafx.controls;
     requires javafx.fxml;
 

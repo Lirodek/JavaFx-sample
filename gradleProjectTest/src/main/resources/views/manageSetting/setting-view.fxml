@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.function.SettingsController">
+    <children>
+        <!-- GridPane 배치 -->
+        <GridPane hgap="20" layoutX="20.0" layoutY="20.0" vgap="10">
+            <!-- 제목 -->
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="발급 설정" GridPane.columnSpan="2" />
+
+            <!-- 증명서 종류 -->
+            <Label text="증명서 종류" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <CheckBox fx:id="certificateA11" text="증명서A-1" />
+                <CheckBox fx:id="certificateA22" text="증명서A-2" />
+                <CheckBox fx:id="certificateBB" text="증명서B" />
+            </VBox>
+
+            <!-- 발급 사유 -->
+            <Label text="발급 사유" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <CheckBox fx:id="reason1" text="발급사유1" />
+                <CheckBox fx:id="reason2" text="발급사유2" />
+                <CheckBox fx:id="reason3" text="발급사유3" />
+                <CheckBox fx:id="reason4" text="발급사유4" />
+                <CheckBox fx:id="reason5" text="발급사유5" />
+            </VBox>
+
+            <!-- 제출처 -->
+            <Label text="제출처" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <CheckBox fx:id="destination1" text="제출처1" />
+                <CheckBox fx:id="destination2" text="제출처2" />
+                <CheckBox fx:id="destination3" text="제출처3" />
+                <CheckBox fx:id="destination4" text="제출처4" />
+                <CheckBox fx:id="destination5" text="제출처5" />
+            </VBox>
+
+            <!-- 발급 정보 -->
+            <Label text="발급 정보" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <CheckBox fx:id="infoA" text="A" />
+                <CheckBox fx:id="infoB" text="B" />
+            </VBox>
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+
+        <Button fx:id="saveSettingsButton" layoutX="461.0" layoutY="255.0" onAction="#onSaveSettings" prefHeight="25.0" prefWidth="119.0" text="설정파일 저장하기" />
+        <Button fx:id="downloadSettingButton" layoutX="461.0" layoutY="293.0" onAction="#onDownloadSettingButtonClick" prefHeight="25.0" prefWidth="119.0" text="설정파일 다운로드" />
+        <Button fx:id="importSettingButton" layoutX="461.0" layoutY="332.0" onAction="#onImportSettingButtonClick" prefHeight="25.0" prefWidth="119.0" text="설정파일 불러오기" />
+    </children>
+</AnchorPane>

@@ -48,6 +48,7 @@ public class RfidController implements PollingEvent.CardPollingHandler{
 
     @FXML
     protected void initialize() throws Exception{
+        /*
         _pcscReader = new PcscReader();
         // Instantiate an event handler object
         _pcscReader.setPollingEventHandler(new PollingEvent());
@@ -61,13 +62,12 @@ public class RfidController implements PollingEvent.CardPollingHandler{
 
         reset();
         listReaders();
-        start();
+        start();*/
     }
 
     private void initializeActiveX() {
         // 비디오 파일 경로
         String videoPath = "file:///C:/path/to/your/video.mp4";
-
 //        ActiveXComponent mediaPlayer = new ActiveXComponent("WMPlayer.OCX");
 
 //        // Media 및 MediaPlayer 생성

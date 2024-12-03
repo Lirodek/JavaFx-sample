@@ -47,7 +47,7 @@ public class HelloController {
     /* change Application */
     @FXML
     public void startButton(ActionEvent event) throws IOException {
-        SceneSwitcher.getInstance().switcher(event, View.RFID_VIEW);
+        SceneSwitcher.getInstance().switcher(event, View.MAIN_VIEW);
 
     }
 

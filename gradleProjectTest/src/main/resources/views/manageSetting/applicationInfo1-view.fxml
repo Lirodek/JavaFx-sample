@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="700.0" prefWidth="350.0" spacing="20" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.function.SettingsController">
+
+    <!-- 상단 텍스트 -->
+    <Label style="-fx-font-size: 12px; -fx-font-weight: bold;" text="발급하실 증명서를 선택해 주세요">
+      <font>
+         <Font size="10.0" />
+      </font></Label>
+
+    <!-- 버튼 4개 (가로 배치) -->
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="certificateA1Btn" prefHeight="40.0" prefWidth="80.0" text="신청정보관리">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
+        <Button fx:id="certificateA2Btn" prefHeight="40.0" prefWidth="80.0" text="관리자설정" />
+        <Button fx:id="certificateBBtn" prefHeight="40.0" prefWidth="80.0" text="용지관리" />
+        <Button fx:id="confirmBtn" prefHeight="40.0" prefWidth="80.0" text="데이터관리" />
+    </HBox>
+
+    <!-- 발급사유설정 문구 -->
+    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="발급사유설정" />
+
+    <!-- 발급사유 설정 항목 1 -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="발급사유1" />
+        <TextField prefHeight="25.0" prefWidth="130.0" promptText="사유 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+    <!-- 발급사유 설정 항목 2 (복사된 라인) -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="발급사유2" />
+        <TextField prefHeight="25.0" prefWidth="130.0" promptText="사유 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+    <!-- 발급사유 설정 항목 3 (복사된 라인) -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="발급사유3" />
+      <TextField prefHeight="25.0" prefWidth="130.0" promptText="사유 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+    <!-- 발급사유 설정 항목 4 (복사된 라인) -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="발급사유4" />
+        <TextField prefHeight="25.0" prefWidth="130.0" promptText="사유 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+    <!-- 발급사유 설정 항목 5 (복사된 라인) -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="발급사유5" />
+        <TextField prefHeight="25.0" prefWidth="130.0" promptText="사유 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+    <!-- 구분선 -->
+    <Line endX="350" endY="0" startX="0" startY="0" stroke="gray" strokeWidth="2" />
+
+    <!-- 제출처 설정 문구 -->
+    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="제출처 설정" />
+
+    <!-- 제출처 설정 항목 1 -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="제출처1" />
+        <TextField prefHeight="25.0" prefWidth="130.0" promptText="제출처 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+    <!-- 제출처 설정 항목 2 (복사된 라인) -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="제출처2" />
+        <TextField prefHeight="25.0" prefWidth="130.0" promptText="제출처 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+    <!-- 제출처 설정 항목 3 (복사된 라인) -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="제출처3" />
+        <TextField prefHeight="25.0" prefWidth="130.0" promptText="제출처 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+    <!-- 제출처 설정 항목 4 (복사된 라인) -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="제출처4" />
+        <TextField prefHeight="25.0" prefWidth="130.0" promptText="제출처 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+    <!-- 제출처 설정 항목 5 (복사된 라인) -->
+    <HBox alignment="CENTER" spacing="10">
+        <CheckBox text="제출처5" />
+        <TextField prefHeight="25.0" prefWidth="130.0" promptText="제출처 입력" />
+        <CheckBox />
+        <Label style="-fx-font-size: 12px; -fx-text-fill: red;" text="발급불가" />
+    </HBox>
+
+</VBox>

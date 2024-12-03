@@ -25,18 +25,18 @@ public class MainController {
 
     @FXML
     protected void initialize() {
-//        executorService = Executors.newSingleThreadScheduledExecutor();
-//
-//        // 10초마다 비동기로 작업 실행
-//        executorService.scheduleAtFixedRate(() -> {
-//            System.out.println("스케쥴러 동작중 . . .");
-//
-//            // SNMPPrinterStatus.f() 호출 결과 가져오기
-//            String status = SNMPPrinterStatus.f();
-//
-//            // JavaFX UI 스레드에서 Label 업데이트
-//            Platform.runLater(() -> printStatus.setText(status));
-//        }, 0, 10, TimeUnit.SECONDS);
+        executorService = Executors.newSingleThreadScheduledExecutor();
+
+        // 10초마다 비동기로 작업 실행
+        executorService.scheduleAtFixedRate(() -> {
+            System.out.println("스케쥴러 동작중 . . .");
+            
+            // SNMPPrinterStatus.f() 호출 결과 가져오기
+            String status = SNMPPrinterStatus.f();
+        
+            // JavaFX UI 스레드에서 Label 업데이트
+            Platform.runLater(() -> printStatus.setText(status));
+        }, 0, 10, TimeUnit.SECONDS);
     }
 
 
@@ -84,5 +84,10 @@ public class MainController {
     @FXML
     protected void onGoingTextField(ActionEvent event) throws IOException{
         SceneSwitcher.getInstance().switcher(event, View.TEXT_FIELD);
+    }
+
+    @FXML
+    protected void onSaveSettingButtonClick(ActionEvent event) throws IOException{
+        SceneSwitcher.getInstance().switcher(event, View.CERTIFICATE_VIEW);
     }
 }

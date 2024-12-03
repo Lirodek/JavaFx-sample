@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.sight.kiosk.enums.View;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,12 +25,11 @@ public class HelloApplication extends Application {
         propsTest();
         readJson();
 
-
         primaryStageObj = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource(View.MAIN_VIEW.getPath()));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/hello-view.fxml"));
         //primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Kiosk-system Demo");
-//        primaryStage.getIcons().add(new Image(getClass().getResource("images/icon.png").toString()));
+        primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResource("images/icon.png").toString()));
 
         Scene scene = new Scene(root, 600, 400);
         scene.setRoot(root);
