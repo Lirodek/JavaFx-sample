@@ -19,4 +19,6 @@ module org.sight.kiosk {
     opens org.sight.kiosk.controller to javafx.fxml;
     exports org.sight.kiosk.controller.function;
     opens org.sight.kiosk.controller.function to javafx.fxml;
+    exports org.sight.kiosk.controller.setting;
+    opens org.sight.kiosk.controller.setting to javafx.fxml;
 }

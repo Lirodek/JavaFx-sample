@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<VBox alignment="TOP_LEFT" prefHeight="700.0" prefWidth="350.0" spacing="20" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.function.SettingsController">
+
+    <!-- 발급기간 설정 문구 -->
+    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="발급기간 설정" />
+
+    <!-- 최근 문구와 텍스트박스 -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="최근" />
+        <TextField prefHeight="25.0" prefWidth="220.0" promptText="입력" />
+        <Label prefHeight="23.0" prefWidth="22.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="년" />
+        <RadioButton fx:id="applyRadioButton" text="적용" />
+    </HBox>
+
+    <!-- 적용 라디오버튼 -->
+    <HBox alignment="CENTER_LEFT" spacing="10" />
+
+    <!-- 직접선택과 셀렉트박스 -->
+    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: lightgray;">
+        <Label text="직접선택" />
+        <ComboBox fx:id="yearComboBox1" prefHeight="25.0" prefWidth="100.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Integer fx:value="1950" />
+                    <Integer fx:value="1951" />
+                    <Integer fx:value="1952" />
+                    <!-- 2025년까지 추가 -->
+                    <Integer fx:value="2025" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label text="~" />
+        <ComboBox fx:id="yearComboBox2" prefHeight="25.0" prefWidth="100.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Integer fx:value="2025" />
+                    <Integer fx:value="2024" />
+                    <Integer fx:value="2023" />
+                    <Integer fx:value="2022" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <RadioButton fx:id="applyRadioButton2" style="-fx-opacity: 0.5;" text="적용" />
+    </HBox>
+
+    <!-- 구분선 -->
+    <Line endX="350" endY="0" startX="0" startY="0" stroke="gray" strokeWidth="2" />
+
+    <!-- 발급정보 설정 문구 -->
+    <Label prefHeight="23.0" prefWidth="102.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="발급정보 설정" />
+
+    <!-- 첫 번째 발급정보 설정 항목 -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <CheckBox text="발급정보1" />
+        <TextField prefHeight="25.0" prefWidth="225.0" promptText="정보 입력" />
+    </HBox>
+
+    <!-- 두 번째 발급정보 설정 항목 -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <CheckBox text="발급정보2" />
+        <TextField prefHeight="25.0" prefWidth="225.0" promptText="정보 입력" />
+    </HBox>
+
+    <!-- 최소, 저장 버튼 -->
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Button prefHeight="40.0" prefWidth="163.0" text="취소" />
+        <Button prefHeight="40.0" prefWidth="163.0" text="저장" />
+    </HBox>
+
+</VBox>

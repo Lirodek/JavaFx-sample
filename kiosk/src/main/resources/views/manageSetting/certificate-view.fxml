@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.function.SettingsController"
+      alignment="CENTER" spacing="20" prefHeight="700.0" prefWidth="350.0">
+
+    <!-- 상단 텍스트 -->
+    <Label text="발급하실 증명서를 선택해 주세요" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+
+    <!-- 증명서 A-1 버튼 -->
+    <Button fx:id="certificateA1" text="증명서 A-1" prefWidth="250.0" prefHeight="40.0"/>
+
+    <!-- 증명서 A-2 버튼 -->
+    <Button fx:id="certificateA2" text="증명서 A-2" prefWidth="250.0" prefHeight="40.0"/>
+
+    <!-- 가로 구분선 -->
+    <Line startX="0" startY="0" endX="250" endY="0" stroke="gray" strokeWidth="2"/>
+
+    <!-- 증명서 B 버튼 -->
+    <Button fx:id="certificateB" text="증명서 B" prefWidth="250.0" prefHeight="40.0"/>
+
+    <!-- 확인 버튼 -->
+    <Button fx:id="confirmButton" text="확인" prefWidth="250.0" prefHeight="40.0"/>
+
+</VBox>
