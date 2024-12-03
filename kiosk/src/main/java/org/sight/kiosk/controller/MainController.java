@@ -1,6 +1,5 @@
 package org.sight.kiosk.controller;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -11,9 +10,7 @@ import org.sight.kiosk.util.SNMPPrinterStatus;
 import org.sight.kiosk.util.SceneSwitcher;
 
 import java.io.IOException;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class MainController {
     @FXML

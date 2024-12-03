@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.function.ComboController">
+   <children>
+      <Button layoutX="81.0" layoutY="290.0" mnemonicParsing="false" onAction="#onGoingMenu" text="메뉴" />
+      <Button layoutX="489.0" layoutY="290.0" mnemonicParsing="false" onAction="#onGoingNext" text="다음" />
+      <ComboBox fx:id="comboBox" layoutX="225.0" layoutY="84.0" prefWidth="150.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="조성규" />
+               <String fx:value="잘생긴 조성규" />
+               <String fx:value="배우 조성규" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Button layoutX="394.0" layoutY="84.0" mnemonicParsing="false" onAction="#onFunctionBtn" text="입력완료" />
+      <Label layoutX="132.0" layoutY="88.0" text="선택해주세요." />
+   </children>
+</AnchorPane>

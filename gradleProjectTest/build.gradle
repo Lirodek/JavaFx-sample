@@ -22,15 +22,16 @@ sourceSets {
 }
 
 java {
-    modularity.inferModulePath = true
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 ext {
     junitVersion = '5.10.0'
 }
-
-sourceCompatibility = '21'
-targetCompatibility = '21'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8' // UTF-8로 인코딩 설정
@@ -38,13 +39,16 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'org.sight.kiosk'
-    mainClass = 'org.sight.kiosk.HelloApplication'
+    mainClass =  'org.sight.kiosk.HelloApplication'
 }
+
+
 
 javafx {
     version = '21'
     modules = ['javafx.controls', 'javafx.fxml']
 }
+
 
 dependencies {
     implementation('org.controlsfx:controlsfx:11.1.2')
@@ -54,25 +58,9 @@ dependencies {
     implementation("org.snmp4j:snmp4j:3.8.2")
     implementation('com.fasterxml.jackson.core:jackson-databind:2.15.2')
 
-    implementation files('lib/jacob.jar')
-
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+//    implementation files('lib/jacob.jar')
 
 }
-
-test {
-    useJUnitPlatform()
-}
-
-jlink {
-    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
-    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
-    launcher {
-        name = 'app'
-    }
-}
-
-jlinkZip {
-    group = 'distribution'
+tasks.named('run') {
+    workingDir = file("$projectDir")
 }

@@ -1,7 +1,6 @@
 package org.sight.kiosk.controller;
 
 import javafx.application.Platform;
-import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,13 +13,12 @@ import org.sight.kiosk.enums.View;
 import org.sight.kiosk.rfidUtils.*;
 import org.sight.kiosk.util.SceneSwitcher;
 import org.sight.kiosk.util.TestCardUID;
+
+
 import javax.smartcardio.CardException;
 import javax.smartcardio.CardNotPresentException;
 import javax.smartcardio.CommandAPDU;
 import javax.smartcardio.ResponseAPDU;
-
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.security.PrivilegedAction;
 
