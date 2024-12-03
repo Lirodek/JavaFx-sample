@@ -7,23 +7,34 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import org.sight.kiosk.enums.POLLING_STATUS;
 import org.sight.kiosk.enums.View;
 import org.sight.kiosk.rfidUtils.*;
 import org.sight.kiosk.util.SceneSwitcher;
 import org.sight.kiosk.util.TestCardUID;
-
 import javax.smartcardio.CardException;
 import javax.smartcardio.CardNotPresentException;
 import javax.smartcardio.CommandAPDU;
 import javax.smartcardio.ResponseAPDU;
+
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.security.PrivilegedAction;
 
 public class RfidController implements PollingEvent.CardPollingHandler{
     @FXML
     private Label welcomeText;
+
+    @FXML
+    private StackPane rootPane; // FXML 파일에서 정의된 StackPane
+
+    @FXML
+    private BorderPane mediaPane;
+//    private MediaPlayer mediaPlayer;
+
     private Scene scene;
 
     private PcscReader _pcscReader;
@@ -51,6 +62,25 @@ public class RfidController implements PollingEvent.CardPollingHandler{
         reset();
         listReaders();
         start();
+    }
+
+    private void initializeActiveX() {
+        // 비디오 파일 경로
+        String videoPath = "file:///C:/path/to/your/video.mp4";
+//        ActiveXComponent mediaPlayer = new ActiveXComponent("WMPlayer.OCX");
+
+//        // Media 및 MediaPlayer 생성
+//        Media media = new Media(videoPath);
+//        mediaPlayer = new MediaPlayer(media);
+//
+//        // MediaView 생성 및 MediaPlayer 연결
+//        MediaView mediaView = new MediaView(mediaPlayer);
+//
+//        // MediaView를 BorderPane의 중앙에 배치
+//        mediaPane.setCenter(mediaView);
+//
+//        // MediaPlayer 재생 시작
+//        mediaPlayer.play();
     }
 
     /* Terminates Application */

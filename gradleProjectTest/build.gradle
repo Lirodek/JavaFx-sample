@@ -33,7 +33,7 @@ sourceCompatibility = '21'
 targetCompatibility = '21'
 
 tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+    options.encoding = 'UTF-8' // UTF-8로 인코딩 설정
 }
 
 application {
@@ -53,6 +53,8 @@ dependencies {
     implementation('org.apache.pdfbox:pdfbox:2.0.29')
     implementation("org.snmp4j:snmp4j:3.8.2")
     implementation('com.fasterxml.jackson.core:jackson-databind:2.15.2')
+
+    implementation files('lib/jacob.jar')
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")

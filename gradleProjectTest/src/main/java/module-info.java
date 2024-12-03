@@ -10,6 +10,7 @@ module org.sight.kiosk.gradleprojecttest {
     requires org.snmp4j;
     requires com.fasterxml.jackson.databind;
     requires java.smartcardio;
+//    requires jacob;
 
 
     opens org.sight.kiosk to javafx.fxml;
