@@ -53,7 +53,7 @@ public class PDFPrinter {
             try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true, true)) {
                 // 그래픽 상태 설정 (투명도)
                 PDExtendedGraphicsState graphicsState = new PDExtendedGraphicsState();
-                graphicsState.setNonStrokingAlphaConstant(0.8f); // 80% 투명도
+                graphicsState.setNonStrokingAlphaConstant(0.3f);
                 contentStream.setGraphicsStateParameters(graphicsState);
 
                 if (isImage) {
@@ -83,7 +83,10 @@ public class PDFPrinter {
                     PDFont font = PDType1Font.HELVETICA_BOLD;
                     int fontSize = 50;
                     contentStream.setFont(font, fontSize);
+
+                    // 텍스트 색상 및 투명도 설정 (텍스트도 투명하게 만들기)
                     contentStream.setNonStrokingColor(200, 200, 200); // 텍스트 색상 (연한 회색)
+                    contentStream.setGraphicsStateParameters(graphicsState); // 텍스트에 투명도 적용
 
                     // 텍스트 폭 계산
                     float textWidth = font.getStringWidth(watermark) / 1000 * fontSize;
