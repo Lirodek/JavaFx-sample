@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.30402010050251255" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.MainController">
+<SplitPane dividerPositions="0.30402010050251255" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.MainController">
 
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="64.0" prefWidth="598.0">
-         <children>
-            <Label fx:id="welcomeText" layoutX="266.0" layoutY="25.0" prefHeight="69.0" prefWidth="57.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="275.0">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></Label>
-            <Button layoutX="232.0" layoutY="20.0" mnemonicParsing="false" onAction="#onEndService" prefHeight="79.0" prefWidth="124.0" text="사용종료" />
-         </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-         <children>
-            <SplitPane dividerPositions="0.5024793388429752" layoutX="-5.0" prefHeight="274.0" prefWidth="607.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <Button layoutX="194.0" layoutY="47.0" mnemonicParsing="false" onAction="#onGoingCombo" prefHeight="37.0" prefWidth="74.0" text="combo" />
-                        <Button layoutX="52.0" layoutY="47.0" mnemonicParsing="false" onAction="#onGoingCheck" prefHeight="37.0" prefWidth="74.0" text="check" />
-                        <Button layoutX="52.0" layoutY="181.0" mnemonicParsing="false" onAction="#onGoingRadio" prefHeight="37.0" prefWidth="74.0" text="radio" />
-                        <Button layoutX="194.0" layoutY="181.0" mnemonicParsing="false" onAction="#onGoingTextField" prefHeight="37.0" prefWidth="74.0" text="textField" />
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <Button layoutX="123.0" layoutY="125.0" mnemonicParsing="false" onAction="#onHelloButtonClick" text="증명서 발급" />
-                        <Label layoutX="45.0" layoutY="33.0" text="프린트 상태 :" />
-                        <Label fx:id="printStatus" layoutX="123.0" layoutY="33.0" text="대기중.." />
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-         </children></AnchorPane>
-  </items>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="64.0" prefWidth="598.0">
+            <children>
+                <Label fx:id="welcomeText" layoutX="266.0" layoutY="25.0" prefHeight="69.0" prefWidth="57.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="275.0">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font></Label>
+                <Button layoutX="232.0" layoutY="20.0" mnemonicParsing="false" onAction="#onEndService" prefHeight="79.0" prefWidth="124.0" text="사용종료" />
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <children>
+                <SplitPane dividerPositions="0.5024793388429752" layoutX="-5.0" prefHeight="274.0" prefWidth="607.0">
+                    <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                            <children>
+                                <Button layoutX="194.0" layoutY="47.0" mnemonicParsing="false" onAction="#onGoingCombo" prefHeight="37.0" prefWidth="74.0" text="combo" />
+                                <Button layoutX="52.0" layoutY="47.0" mnemonicParsing="false" onAction="#onGoingCheck" prefHeight="37.0" prefWidth="74.0" text="check" />
+                                <Button layoutX="52.0" layoutY="181.0" mnemonicParsing="false" onAction="#onGoingRadio" prefHeight="37.0" prefWidth="74.0" text="radio" />
+                                <Button layoutX="194.0" layoutY="181.0" mnemonicParsing="false" onAction="#onGoingTextField" prefHeight="37.0" prefWidth="74.0" text="textField" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                            <children>
+                                <Button layoutX="123.0" layoutY="125.0" mnemonicParsing="false" onAction="#onHelloButtonClick" text="증명서 발급" />
+                                <Label layoutX="45.0" layoutY="33.0" text="프린트 상태 :" />
+                                <Label fx:id="printStatus" layoutX="123.0" layoutY="33.0" text="대기중.." />
+                                <Button layoutX="123.0" layoutY="163.0" mnemonicParsing="false" onAction="#onSaveSettingButtonClick" text="설정정보" />
+                            </children>
+                        </AnchorPane>
+                    </items>
+                </SplitPane>
+            </children></AnchorPane>
+    </items>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
 </SplitPane>

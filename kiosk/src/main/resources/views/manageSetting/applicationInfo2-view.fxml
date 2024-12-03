@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox alignment="TOP_LEFT" prefHeight="700.0" prefWidth="350.0" spacing="20" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.function.SettingsController">
+<VBox alignment="TOP_LEFT" prefHeight="700.0" prefWidth="350.0" spacing="20" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sight.kiosk.controller.setting.Settings2Controller">
 
     <!-- 발급기간 설정 문구 -->
     <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="발급기간 설정" />

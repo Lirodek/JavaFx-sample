@@ -82,4 +82,9 @@ public class MainController {
     protected void onGoingTextField(ActionEvent event) throws IOException{
         SceneSwitcher.getInstance().switcher(event, View.TEXT_FIELD);
     }
+
+    @FXML
+    protected void onSaveSettingButtonClick(ActionEvent event) throws IOException{
+        SceneSwitcher.getInstance().switcher(event, View.CERTIFICATE_VIEW);
+    }
 }
